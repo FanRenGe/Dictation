@@ -347,6 +347,12 @@ namespace 汉字听写大会专用系统
 
         }
 
+        private void 导入试题ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2 { TopMost = true };
+            f.ShowDialog();
+        }
+
     }
 
 }
