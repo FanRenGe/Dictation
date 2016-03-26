@@ -131,7 +131,7 @@ namespace 汉字听写大会专用系统
                 clientSocket.Close();
                 clientSocket = null;
             }
-            ClearPictureBox();
+            ResetPictureBox();
 
             //一定要写在线程结束前，否则不触发
             if (OnClientdisConnect != null)
@@ -189,6 +189,11 @@ namespace 汉字听写大会专用系统
         }
 
         public void ClearPictureBox()
+        {
+            g.Clear(Color.White);
+            reDraw();
+        }
+        public void ResetPictureBox()
         {
             UsePicDraw.BackColor = SystemColors.ControlDark;
             //UsePicDraw.Text = string.Empty;

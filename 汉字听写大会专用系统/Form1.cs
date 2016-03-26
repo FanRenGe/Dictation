@@ -93,10 +93,10 @@ namespace 汉字听写大会专用系统
             }
             else
             {
-                user.ClearPictureBox();
+                user.ResetPictureBox();
             }
 
-           
+
         }
 
         private delegate void ChangeDelegate(int newTime);
@@ -140,6 +140,9 @@ namespace 汉字听写大会专用系统
         private void btnShowTopic_Click(object sender, EventArgs e)
         {
             btnShowTopic.Enabled = false;
+
+            btnClean_Click(null, null);
+
             #region 出题
             lblTopic.Text = words.ShowWord();
             #endregion
@@ -255,7 +258,7 @@ namespace 汉字听写大会专用系统
 
             try
             {
-                user.ClearPictureBox();
+                user.ResetPictureBox();
                 //从客户端列表移除
                 clientList.Remove(clientIp);
                 //从用户列表移除
