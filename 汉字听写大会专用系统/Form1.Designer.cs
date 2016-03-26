@@ -34,22 +34,26 @@ namespace 汉字听写大会专用系统
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTopic = new System.Windows.Forms.Label();
             this.btnShowTopic = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.导入试题ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTimer = new System.Windows.Forms.Label();
             this.btnClean = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,6 +61,7 @@ namespace 汉字听写大会专用系统
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.lblTopic);
             this.panel1.Controls.Add(this.btnShowTopic);
+            this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -79,13 +84,30 @@ namespace 汉字听写大会专用系统
             // 
             this.btnShowTopic.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnShowTopic.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnShowTopic.Location = new System.Drawing.Point(0, 0);
+            this.btnShowTopic.Location = new System.Drawing.Point(0, 25);
             this.btnShowTopic.Name = "btnShowTopic";
-            this.btnShowTopic.Size = new System.Drawing.Size(133, 115);
+            this.btnShowTopic.Size = new System.Drawing.Size(133, 90);
             this.btnShowTopic.TabIndex = 0;
             this.btnShowTopic.Text = "出题";
             this.btnShowTopic.UseVisualStyleBackColor = true;
             this.btnShowTopic.Click += new System.EventHandler(this.btnShowTopic_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.导入试题ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1037, 25);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 导入试题ToolStripMenuItem
+            // 
+            this.导入试题ToolStripMenuItem.Name = "导入试题ToolStripMenuItem";
+            this.导入试题ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.导入试题ToolStripMenuItem.Text = "导入试题";
+            this.导入试题ToolStripMenuItem.Click += new System.EventHandler(this.导入试题ToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -141,6 +163,19 @@ namespace 汉字听写大会专用系统
             this.tableLayoutPanel1.Size = new System.Drawing.Size(906, 616);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.AccessibleName = "";
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(447, 302);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Text = "sssssuuuu";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -179,18 +214,9 @@ namespace 汉字听写大会专用系统
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pictureBox1
+            // openFileDialog1
             // 
-            this.pictureBox1.AccessibleName = "";
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(447, 302);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Text = "sssssuuuu";
+            this.openFileDialog1.Filter = "(*.xls,*.xlsx)|*.xls;*.xlsx";
             // 
             // Form1
             // 
@@ -200,17 +226,20 @@ namespace 汉字听写大会专用系统
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,6 +258,9 @@ namespace 汉字听写大会专用系统
         private System.Windows.Forms.Label lblTimer;
         private Timer timer1;
         private PictureBox pictureBox1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem 导入试题ToolStripMenuItem;
+        private OpenFileDialog openFileDialog1;
     }
 }
 

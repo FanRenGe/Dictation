@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace 汉字听写大会专用系统
@@ -102,58 +96,7 @@ namespace 汉字听写大会专用系统
                 user.ClearPictureBox();
             }
 
-            //if (pictureBox1.Text == clientIp)
-            //{
-            //    if (this.pictureBox1.InvokeRequired)
-            //    {
-            //        removeDelegate md = new removeDelegate(this.removeUser);
-            //        this.Invoke(md, new object[] { clientIp });
-            //    }
-            //    else
-            //    {
-            //        this.pictureBox1.BackColor = SystemColors.ControlDark;
-            //        this.pictureBox1.Text = string.Empty;
-            //    }
-            //}
-            //else if (pictureBox2.Text == clientIp)
-            //{
-            //    if (this.pictureBox2.InvokeRequired)
-            //    {
-            //        removeDelegate md = new removeDelegate(this.removeUser);
-            //        this.Invoke(md, new object[] { clientIp });
-            //    }
-            //    else
-            //    {
-            //        this.pictureBox2.BackColor = SystemColors.ControlDark;
-            //        this.pictureBox2.Text = string.Empty;
-            //    }
-            //}
-            //else if (pictureBox3.Text == clientIp)
-            //{
-            //    if (this.pictureBox3.InvokeRequired)
-            //    {
-            //        removeDelegate md = new removeDelegate(this.removeUser);
-            //        this.Invoke(md, new object[] { clientIp });
-            //    }
-            //    else
-            //    {
-            //        this.pictureBox3.BackColor = SystemColors.ControlDark;
-            //        this.pictureBox3.Text = string.Empty;
-            //    }
-            //}
-            //else if (pictureBox4.Text == clientIp)
-            //{
-            //    if (this.pictureBox4.InvokeRequired)
-            //    {
-            //        removeDelegate md = new removeDelegate(this.removeUser);
-            //        this.Invoke(md, new object[] { clientIp });
-            //    }
-            //    else
-            //    {
-            //        this.pictureBox4.BackColor = SystemColors.ControlDark;
-            //        this.pictureBox4.Text = string.Empty;
-            //    }
-            //}
+           
         }
 
         private delegate void ChangeDelegate(int newTime);
@@ -345,6 +288,31 @@ namespace 汉字听写大会专用系统
 
             #endregion
 
+        }
+
+        private void 导入试题ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string extension = Path.GetExtension(openFileDialog1.FileName);
+                string[] str = new string[] { ".xls", ".xlsx" };
+                if (!((IList)str).Contains(extension))
+                {
+                    MessageBox.Show("仅能上次Execl");
+                }
+                else
+                {
+                    if (words.Import(openFileDialog1.FileName))
+                    {
+                        MessageBox.Show("导入成功");
+                    }
+                    else
+                    {
+                        MessageBox.Show("导入失败，请重试。");
+                    }
+                }
+            }
         }
 
     }
