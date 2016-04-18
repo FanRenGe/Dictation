@@ -360,14 +360,7 @@ namespace 汉字听写大会专用系统
                 }
                 else
                 {
-                    if (words.Import(openFileDialog1.FileName))
-                    {
-                        MessageBox.Show("导入成功");
-                    }
-                    else
-                    {
-                        MessageBox.Show("导入失败，请重试。");
-                    }
+                    MessageBox.Show(words.Import(openFileDialog1.FileName) ? "导入成功" : "导入失败，请重试。");
                 }
             }
         }

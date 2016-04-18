@@ -73,7 +73,7 @@ namespace 汉字听写大会专用系统
             //UsePicDraw.Text = clinetIP;
             //this.UsePicDraw.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             //this.UsePicDraw.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            
+
 
             //将线帽样式设为圆线帽，否则笔宽变宽时会出现明显的缺口  
             p.StartCap = LineCap.Round;
@@ -181,10 +181,10 @@ namespace 汉字听写大会专用系统
             foreach (string coordinate in arrCoordinate)
             {
                 string[] xy = coordinate.Split(',');
-                float x1 = float.Parse(xy[0]);
-                float y1 = float.Parse(xy[1]);
-                float x2 = float.Parse(xy[2]);
-                float y2 = float.Parse(xy[3]);
+                float x1 = float.Parse(xy[0]) * (float)0.5;
+                float y1 = float.Parse(xy[1]) * (float)0.5;
+                float x2 = float.Parse(xy[2]) * (float)0.5;
+                float y2 = float.Parse(xy[3]) * (float)0.5;
                 g.DrawLine(p, x1, y1, x2, y2);
 
             }

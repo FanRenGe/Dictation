@@ -466,3 +466,5 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+汉字听写大会专用系统/bin/Debug/汉字听写大会专用系统.exe.config
+汉字听写大会专用系统/bin/Debug/汉字听写大会专用系统.vshost.exe.config

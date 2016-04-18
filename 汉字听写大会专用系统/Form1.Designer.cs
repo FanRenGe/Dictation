@@ -65,7 +65,7 @@ namespace 汉字听写大会专用系统
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(741, 117);
+            this.panel1.Size = new System.Drawing.Size(935, 100);
             this.panel1.TabIndex = 0;
             // 
             // lblTopic
@@ -73,7 +73,7 @@ namespace 汉字听写大会专用系统
             this.lblTopic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTopic.AutoSize = true;
             this.lblTopic.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTopic.Location = new System.Drawing.Point(199, 51);
+            this.lblTopic.Location = new System.Drawing.Point(199, 43);
             this.lblTopic.Name = "lblTopic";
             this.lblTopic.Size = new System.Drawing.Size(130, 29);
             this.lblTopic.TabIndex = 1;
@@ -86,7 +86,7 @@ namespace 汉字听写大会专用系统
             this.btnShowTopic.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnShowTopic.Location = new System.Drawing.Point(0, 25);
             this.btnShowTopic.Name = "btnShowTopic";
-            this.btnShowTopic.Size = new System.Drawing.Size(133, 90);
+            this.btnShowTopic.Size = new System.Drawing.Size(133, 73);
             this.btnShowTopic.TabIndex = 0;
             this.btnShowTopic.Text = "出题";
             this.btnShowTopic.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@ namespace 汉字听写大会专用系统
             this.导入试题ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(739, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(933, 25);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,9 +115,9 @@ namespace 汉字听写大会专用系统
             this.panel2.Controls.Add(this.lblTimer);
             this.panel2.Controls.Add(this.btnClean);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 117);
+            this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(133, 606);
+            this.panel2.Size = new System.Drawing.Size(133, 641);
             this.panel2.TabIndex = 1;
             // 
             // lblTimer
@@ -136,7 +136,7 @@ namespace 汉字听写大会专用系统
             // 
             this.btnClean.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClean.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnClean.Location = new System.Drawing.Point(0, 555);
+            this.btnClean.Location = new System.Drawing.Point(0, 590);
             this.btnClean.Name = "btnClean";
             this.btnClean.Size = new System.Drawing.Size(131, 49);
             this.btnClean.TabIndex = 0;
@@ -154,13 +154,13 @@ namespace 汉字听写大会专用系统
             this.tableLayoutPanel1.Controls.Add(this.pictureBox3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox4, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(133, 117);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(133, 100);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(608, 606);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(802, 641);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // pictureBox1
@@ -172,7 +172,7 @@ namespace 汉字听写大会专用系统
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(298, 297);
+            this.pictureBox1.Size = new System.Drawing.Size(395, 314);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Text = "sssssuuuu";
@@ -183,9 +183,9 @@ namespace 汉字听写大会专用系统
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(307, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(404, 3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(298, 297);
+            this.pictureBox2.Size = new System.Drawing.Size(395, 314);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -195,9 +195,9 @@ namespace 汉字听写大会专用系统
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 306);
+            this.pictureBox3.Location = new System.Drawing.Point(3, 323);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(298, 297);
+            this.pictureBox3.Size = new System.Drawing.Size(395, 315);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
@@ -207,9 +207,9 @@ namespace 汉字听写大会专用系统
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Location = new System.Drawing.Point(307, 306);
+            this.pictureBox4.Location = new System.Drawing.Point(404, 323);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(298, 297);
+            this.pictureBox4.Size = new System.Drawing.Size(395, 315);
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             // 
@@ -220,14 +220,14 @@ namespace 汉字听写大会专用系统
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.Filter = "(*.xls,*.xlsx)|*.xls;*.xlsx";
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "(*.xls,*.xlsx)|*.xls;*.xlsx";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 723);
+            this.ClientSize = new System.Drawing.Size(935, 741);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
