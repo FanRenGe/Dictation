@@ -10,9 +10,14 @@
  * killSelf:客户端自杀
  ------------------------------------------ */
 using System;
+using System.Collections.Generic;
 using System.Drawing.Drawing2D;
+using System.Text;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Net.Sockets;
+using System.Net;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -51,7 +56,7 @@ namespace 汉字听写大会专用系统
 
         private string UserIP = null;
         private string UserName = null;
-
+        //System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         //构造函数
         public client(Socket Socket, PictureBox pb)
         {
@@ -66,6 +71,9 @@ namespace 汉字听写大会专用系统
             this.UsePicDraw = pb;
             UsePicDraw.BackColor = SystemColors.Control;
             //UsePicDraw.Text = clinetIP;
+            //this.UsePicDraw.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            //this.UsePicDraw.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            
 
             //将线帽样式设为圆线帽，否则笔宽变宽时会出现明显的缺口  
             p.StartCap = LineCap.Round;
@@ -131,7 +139,7 @@ namespace 汉字听写大会专用系统
                 clientSocket.Close();
                 clientSocket = null;
             }
-            ResetPictureBox();
+            ClearPictureBox();
 
             //一定要写在线程结束前，否则不触发
             if (OnClientdisConnect != null)
@@ -189,11 +197,6 @@ namespace 汉字听写大会专用系统
         }
 
         public void ClearPictureBox()
-        {
-            g.Clear(Color.White);
-            reDraw();
-        }
-        public void ResetPictureBox()
         {
             UsePicDraw.BackColor = SystemColors.ControlDark;
             //UsePicDraw.Text = string.Empty;
