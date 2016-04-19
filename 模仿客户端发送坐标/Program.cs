@@ -12,9 +12,11 @@ namespace 模仿客户端发送坐标
     class Program
     {
         static Socket clientSocket;
+       
         static void Main(string[] args)
         {
-            IPAddress ip = IPAddress.Parse("192.168.31.246");// IPAddress.Parse("172.16.3.65");
+            string strIP = System.Configuration.ConfigurationManager.AppSettings["serverip"];
+            IPAddress ip = IPAddress.Parse(strIP);
             IPEndPoint iep = new IPEndPoint(ip, 9009);
             bool isContinue = true;
             string strContinue = "Y";

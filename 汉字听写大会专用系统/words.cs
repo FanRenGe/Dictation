@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.OleDb;
 
 namespace 汉字听写大会专用系统
@@ -8,8 +9,17 @@ namespace 汉字听写大会专用系统
         public static string ShowWord()
         {
             //随机查询一个word
-            string sql = " select top 1 word from words order by NEWID()";
-            string word = SqlHelper.ExecuteScalar(sql).ToString();
+            string sql = " select top 1 id, [Word] from words  where Used=0 order by NEWID();  ";
+            DataTable dt = SqlHelper.ExecuteDt(sql);
+            string word = string.Empty;
+            if (dt.Rows.Count > 0)
+            {
+                string id = dt.Rows[0]["id"].ToString();
+                word = dt.Rows[0]["Word"].ToString();
+                string sql1 = " update words set Used=1 where ID=" + id;
+                SqlHelper.ExecuteSql(sql1);
+            }
+
             return word;
         }
 
