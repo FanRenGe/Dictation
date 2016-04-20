@@ -89,6 +89,7 @@ namespace 汉字听写大会专用系统
 
             //准备接收画图坐标
             clientSocket = Socket;
+            flag = true;
             thread = new Thread(new ThreadStart(WaitForSendData));
             thread.IsBackground = true;
             thread.Name = clientSocket.RemoteEndPoint.ToString();
@@ -117,8 +118,9 @@ namespace 汉字听写大会专用系统
                             }
                         }
                     }
-                    catch
+                    catch(Exception ex)
                     {
+                        Console.Write(ex.Message);
                         killSelf();
                     }
                 }
@@ -132,25 +134,24 @@ namespace 汉字听写大会专用系统
         //客户端自毁方法
         public void killSelf()
         {
-            flag = false;
-
             if (clientSocket != null && clientSocket.Connected)
             {
                 clientSocket.Close();
                 clientSocket = null;
             }
-            ClearPictureBox();
+            
 
             //一定要写在线程结束前，否则不触发
             if (OnClientdisConnect != null)
             {
                 OnClientdisConnect(this, new EventArgs());
             }
-
+            //ResetPictureBox();
+            flag = false;
             if (thread != null && thread.IsAlive)
             {
-                thread.Abort();
-                thread = null;
+                //thread.Abort();
+                //thread = null;
             }
         }
 
@@ -190,24 +191,28 @@ namespace 汉字听写大会专用系统
             }
 
 
-            reDraw();
+            ReDraw();
             originImg = (Bitmap)finishImg;
             UsePicDraw.Image = originImg;
 
         }
-
         public void ClearPictureBox()
+        {
+            g.Clear(Color.White);
+            ReDraw();
+        }
+        public void ResetPictureBox()
         {
             UsePicDraw.BackColor = SystemColors.ControlDark;
             //UsePicDraw.Text = string.Empty;
             g.Clear(SystemColors.ControlDark);
-            reDraw();
+            ReDraw();
         }
 
         /// <summary>  
         /// 重绘绘图区（二次缓冲技术）  
         /// </summary>  
-        private void reDraw()
+        private void ReDraw()
         {
             Graphics graphics = UsePicDraw.CreateGraphics();
             graphics.DrawImage(finishImg, new Point(0, 0));

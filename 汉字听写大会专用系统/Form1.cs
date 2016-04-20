@@ -100,7 +100,7 @@ namespace 汉字听写大会专用系统
             }
             else
             {
-                user.ClearPictureBox();
+                user.ResetPictureBox();
             }
 
             //if (pictureBox1.Text == clientIp)
@@ -199,7 +199,13 @@ namespace 汉字听写大会专用系统
         {
             btnShowTopic.Enabled = false;
             #region 出题
-            lblTopic.Text = words.ShowWord();
+            string testWord= words.ShowWord();
+            if ( string.IsNullOrEmpty(testWord))
+            {
+                MessageBox.Show("目前题库没有可用的试题"); 
+                return;
+            }
+            lblTopic.Text = testWord;
             #endregion
 
             #region 倒计时开始
@@ -303,6 +309,7 @@ namespace 汉字听写大会专用系统
             catch (Exception exp)
             {
                 MessageBox.Show(exp.Message);
+
             }
         }
         //当客户端断开连接，删除这个客户端
@@ -313,11 +320,13 @@ namespace 汉字听写大会专用系统
 
             try
             {
-                user.ClearPictureBox();
+                user.ResetPictureBox();
                 //从客户端列表移除
                 clientList.Remove(clientIp);
                 //从用户列表移除
                 this.removeUser(user);
+                //
+                if(userID>0) userID--;
             }
             catch (Exception exp)
             {

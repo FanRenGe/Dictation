@@ -17,3 +17,12 @@ D:\Project\汉字听写大会专用系统\汉字听写大会专用系统\汉字�
 D:\Project\汉字听写大会专用系统\汉字听写大会专用系统\汉字听写大会专用系统\obj\Debug\汉字听写大会专用系统.Properties.Resources.resources
 D:\Project\汉字听写大会专用系统\汉字听写大会专用系统\汉字听写大会专用系统\obj\Debug\汉字听写大会专用系统.csproj.GenerateResource.Cache
 E:\Projects\汉字听写大会专用系统\汉字听写大会专用系统\汉字听写大会专用系统\obj\Debug\汉字听写大会专用系统.Form2.resources
+E:\Project\Dictation\汉字听写大会专用系统\bin\Debug\汉字听写大会专用系统.exe.config
+E:\Project\Dictation\汉字听写大会专用系统\obj\Debug\汉字听写大会专用系统.exe
+E:\Project\Dictation\汉字听写大会专用系统\obj\Debug\汉字听写大会专用系统.pdb
+E:\Project\Dictation\汉字听写大会专用系统\bin\Debug\汉字听写大会专用系统.exe
+E:\Project\Dictation\汉字听写大会专用系统\bin\Debug\汉字听写大会专用系统.pdb
+E:\Project\Dictation\汉字听写大会专用系统\obj\Debug\汉字听写大会专用系统.csprojResolveAssemblyReference.cache
+E:\Project\Dictation\汉字听写大会专用系统\obj\Debug\汉字听写大会专用系统.Form1.resources
+E:\Project\Dictation\汉字听写大会专用系统\obj\Debug\汉字听写大会专用系统.Properties.Resources.resources
+E:\Project\Dictation\汉字听写大会专用系统\obj\Debug\汉字听写大会专用系统.csproj.GenerateResource.Cache
