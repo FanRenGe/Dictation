@@ -198,12 +198,14 @@ namespace 汉字听写大会专用系统
             if (string.IsNullOrEmpty(testWord))
             {
                 MessageBox.Show(@"目前题库没有可用的试题");
+
                 return;
             }
             lblTopic.Text = testWord;
             #endregion
             #region 发送倒计时
             string strBeginTimer = System.Configuration.ConfigurationManager.AppSettings["timer"];
+
             foreach (DictionaryEntry clientObj in clientList)
             {
                 var user = (client)clientObj.Value;
