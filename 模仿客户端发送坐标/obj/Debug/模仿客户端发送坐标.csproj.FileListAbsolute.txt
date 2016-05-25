@@ -16,3 +16,8 @@ E:\Project\Dictation\模仿客户端发送坐标\bin\Debug\模仿客户端发送
 E:\Project\Dictation\模仿客户端发送坐标\obj\Debug\模仿客户端发送坐标.csprojResolveAssemblyReference.cache
 E:\Project\Dictation\模仿客户端发送坐标\obj\Debug\模仿客户端发送坐标.exe
 E:\Project\Dictation\模仿客户端发送坐标\obj\Debug\模仿客户端发送坐标.pdb
+E:\ProjectMine\汉字听写大会专用系统\汉字听写大会专用系统\模仿客户端发送坐标\bin\Debug\模仿客户端发送坐标.exe.config
+E:\ProjectMine\汉字听写大会专用系统\汉字听写大会专用系统\模仿客户端发送坐标\bin\Debug\模仿客户端发送坐标.exe
+E:\ProjectMine\汉字听写大会专用系统\汉字听写大会专用系统\模仿客户端发送坐标\bin\Debug\模仿客户端发送坐标.pdb
+E:\ProjectMine\汉字听写大会专用系统\汉字听写大会专用系统\模仿客户端发送坐标\obj\Debug\模仿客户端发送坐标.exe
+E:\ProjectMine\汉字听写大会专用系统\汉字听写大会专用系统\模仿客户端发送坐标\obj\Debug\模仿客户端发送坐标.pdb

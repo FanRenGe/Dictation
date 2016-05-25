@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace 汉字听写大会专用系统
@@ -197,19 +190,30 @@ namespace 汉字听写大会专用系统
 
         private void btnShowTopic_Click(object sender, EventArgs e)
         {
-            btnShowTopic.Enabled = false;
+            //btnShowTopic.Enabled = false;
+            btnClean_Click(null, null);
+
             #region 出题
-            string testWord= words.ShowWord();
-            if ( string.IsNullOrEmpty(testWord))
+            string testWord = words.ShowWord();
+            if (string.IsNullOrEmpty(testWord))
             {
-                MessageBox.Show("目前题库没有可用的试题"); 
+                MessageBox.Show(@"目前题库没有可用的试题");
                 return;
             }
             lblTopic.Text = testWord;
             #endregion
+            #region 发送倒计时
+            string strBeginTimer = System.Configuration.ConfigurationManager.AppSettings["timer"];
+            foreach (DictionaryEntry clientObj in clientList)
+            {
+                var user = (client)clientObj.Value;
+                user.SendMessage($"Countdown:{strBeginTimer}");
+            }
+
+            #endregion
 
             #region 倒计时开始
-            string strBeginTimer = System.Configuration.ConfigurationManager.AppSettings["timer"];
+
             beginTimer = string.IsNullOrEmpty(strBeginTimer) ? 60 : Convert.ToInt32(strBeginTimer);
             ChageTime(beginTimer);
 
@@ -224,16 +228,15 @@ namespace 汉字听写大会专用系统
             if (beginTimer == 0)
             {
                 timer1.Stop();
-                btnShowTopic.Enabled = true;
+                //btnShowTopic.Enabled = true;
             }
         }
 
         private void btnClean_Click(object sender, EventArgs e)
         {
-            client user;
             foreach (DictionaryEntry clientObj in clientList)
             {
-                user = (client)clientObj.Value;
+                var user = (client)clientObj.Value;
                 user.ClearPictureBox();
             }
         }
@@ -326,7 +329,7 @@ namespace 汉字听写大会专用系统
                 //从用户列表移除
                 this.removeUser(user);
                 //
-                if(userID>0) userID--;
+                if (userID > 0) userID--;
             }
             catch (Exception exp)
             {
