@@ -199,17 +199,27 @@ namespace 汉字听写大会专用系统
         {
             btnShowTopic.Enabled = false;
             #region 出题
-            string testWord= words.ShowWord();
-            if ( string.IsNullOrEmpty(testWord))
+            string testWord = words.ShowWord();
+            if (string.IsNullOrEmpty(testWord))
             {
-                MessageBox.Show("目前题库没有可用的试题"); 
+                MessageBox.Show("目前题库没有可用的试题");
                 return;
             }
             lblTopic.Text = testWord;
             #endregion
+            #region 发送倒计时
+            string strBeginTimer = System.Configuration.ConfigurationManager.AppSettings["timer"];
+            foreach (DictionaryEntry client in clientList)
+            {
+                client user = client.Value as client;
+                if (user != null)
+                    user.SendMessage(string.Format("Countdown:{0}", strBeginTimer));
+            }
+
+            #endregion
 
             #region 倒计时开始
-            string strBeginTimer = System.Configuration.ConfigurationManager.AppSettings["timer"];
+
             beginTimer = string.IsNullOrEmpty(strBeginTimer) ? 60 : Convert.ToInt32(strBeginTimer);
             ChageTime(beginTimer);
 
@@ -326,7 +336,7 @@ namespace 汉字听写大会专用系统
                 //从用户列表移除
                 this.removeUser(user);
                 //
-                if(userID>0) userID--;
+                if (userID > 0) userID--;
             }
             catch (Exception exp)
             {

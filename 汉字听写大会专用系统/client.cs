@@ -56,7 +56,9 @@ namespace 汉字听写大会专用系统
 
         private string UserIP = null;
         private string UserName = null;
-        //System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+
+        private readonly float _clientWidth = float.Parse(System.Configuration.ConfigurationManager.AppSettings["ClientWidth"]);
+        private readonly float _clientHeigth = float.Parse(System.Configuration.ConfigurationManager.AppSettings["ClientHeight"]);
         //构造函数
         public client(Socket Socket, PictureBox pb)
         {
@@ -118,7 +120,7 @@ namespace 汉字听写大会专用系统
                             }
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Console.Write(ex.Message);
                         killSelf();
@@ -139,7 +141,7 @@ namespace 汉字听写大会专用系统
                 clientSocket.Close();
                 clientSocket = null;
             }
-            
+
 
             //一定要写在线程结束前，否则不触发
             if (OnClientdisConnect != null)
@@ -156,7 +158,7 @@ namespace 汉字听写大会专用系统
         }
 
         //向客户端发送信息方法
-        public void setMessage(string message)
+        public void SendMessage(string message)
         {
             try
             {
@@ -182,19 +184,44 @@ namespace 汉字听写大会专用系统
             foreach (string coordinate in arrCoordinate)
             {
                 string[] xy = coordinate.Split(',');
-                float x1 = float.Parse(xy[0]) * (float)0.5;
-                float y1 = float.Parse(xy[1]) * (float)0.5;
-                float x2 = float.Parse(xy[2]) * (float)0.5;
-                float y2 = float.Parse(xy[3]) * (float)0.5;
+                float x1 = ConvertCoordinate(float.Parse(xy[0]), true);
+                float y1 = ConvertCoordinate(float.Parse(xy[1]), true);
+                float x2 = ConvertCoordinate(float.Parse(xy[2]), true);
+                float y2 = ConvertCoordinate(float.Parse(xy[3]), true);
+
+                p.Width = GetPenWidth(float.Parse(xy[0]));
+
                 g.DrawLine(p, x1, y1, x2, y2);
 
             }
-
 
             ReDraw();
             originImg = (Bitmap)finishImg;
             UsePicDraw.Image = originImg;
 
+        }
+
+        private float ConvertCoordinate(float f, bool isWidth)
+        {
+            float newF = 0;
+            if (isWidth)
+            {
+                newF = (f / _clientWidth) * this.UsePicDraw.Width;
+            }
+            else
+            {
+                newF = (f / _clientHeigth) * this.UsePicDraw.Height;
+            }
+            return newF;
+        }
+
+        private float GetPenWidth(float f)
+        {
+            float newPenWidth = 0;
+            float f1 = ConvertCoordinate(f, true);
+            float f2 = ConvertCoordinate(f + 1, true) - 1;
+            newPenWidth = f2 - f1;
+            return newPenWidth;
         }
         public void ClearPictureBox()
         {
@@ -220,6 +247,8 @@ namespace 汉字听写大会专用系统
         }
 
         #endregion
+
+
 
 
         //代码结束
